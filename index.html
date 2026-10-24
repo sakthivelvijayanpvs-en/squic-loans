@@ -52,7 +52,109 @@ section{padding:55px 0}.section-title{text-align:center;margin:0 auto 28px;max-w
 <label class="consent"><input type="checkbox" id="consent" required><span>I agree to be contacted about this enquiry. I understand loan approval and terms depend on the lender’s eligibility criteria.</span></label>
 <button class="btn btn-wa" type="submit" style="width:100%">Send Enquiry on WhatsApp</button>
 <p class="form-note">Please do not submit passwords, OTPs, bank login details or sensitive documents through this form.</p>
-</form></div></div></section>
+</form></div></div></section> <!-- SQUIC LOANS HOME LOAN IMAGE SLIDER -->
+<section class="home-gallery">
+  <h2>🏠 SQUIC LOANS Home Loan</h2>
+  <p>Make Your Dream Home Possible</p>
+
+  <div class="home-slider">
+    <img
+      id="homeSlide"
+      src="images/home1.jpg"
+      alt="SQUIC LOANS Home Loan"
+    >
+
+    <button type="button" class="slide-prev"
+      onclick="changeHomeSlide(-1)">❮</button>
+
+    <button type="button" class="slide-next"
+      onclick="changeHomeSlide(1)">❯</button>
+  </div>
+
+  <p id="homeSlideCount">1 / 4</p>
+
+  <a class="home-whatsapp"
+     href="https://wa.me/919092105199?text=Hello%20SQUIC%20LOANS%2C%20I%20need%20a%20home%20loan"
+     target="_blank" rel="noopener">
+    WhatsApp Enquiry
+  </a>
+</section>
+
+<style>
+.home-gallery {
+  max-width: 850px;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.home-slider {
+  position: relative;
+  background: #f4f7fb;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.home-slider img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+}
+
+.home-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #064a9b;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  padding: 12px 15px;
+  cursor: pointer;
+}
+
+.slide-prev { left: 12px; }
+.slide-next { right: 12px; }
+
+.home-whatsapp {
+  display: inline-block;
+  background: #128c7e;
+  color: white;
+  padding: 13px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .home-slider img { height: 260px; }
+}
+</style>
+
+<script>
+const homeSlides = [
+  "images/home1.jpg",
+  "images/home2.png",
+  "images/home3.png",
+  "images/home4.png"
+];
+
+let homeSlideIndex = 0;
+
+function changeHomeSlide(direction) {
+  homeSlideIndex =
+    (homeSlideIndex + direction + homeSlides.length)
+    % homeSlides.length;
+
+  document.getElementById("homeSlide").src =
+    homeSlides[homeSlideIndex];
+
+  document.getElementById("homeSlideCount").textContent =
+    (homeSlideIndex + 1) + " / " + homeSlides.length;
+}
+</script>
 <section class="contact"><div class="wrap"><h2>Have a question?</h2><p>Contact SQUIC LOANS on WhatsApp to start your enquiry.</p><a class="btn btn-wa" href="https://wa.me/919092105199?text=Hello%20SQUIC%20LOANS%2C%20I%20have%20a%20loan%20enquiry." target="_blank" rel="noopener">WhatsApp: 90921 05199</a></div></section>
 </main>
 <footer><div class="wrap"><p><strong>SQUIC LOANS</strong> · Pondicherry</p><p>Loan assistance only. This website does not guarantee approval, interest rates or disbursal. Final eligibility, pricing and approval are subject to the lender’s policies and assessment.</p><p>© <span id="year"></span> SQUIC LOANS</p></div></footer>
