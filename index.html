@@ -1,439 +1,221 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#102b50">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SQUIC LOANS | Loan Assistance</title>
-<meta name="description" content="Explore personal loans, business loans, home loans and loans against property with SQUIC LOANS.">
 <style>
-
-/* SQUIC LOANS HEADER */
-header {
-  min-height: 90px;
-  height: auto;
-  padding: 12px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  box-sizing: border-box;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:#142e4f;line-height:1.6}
+a{text-decoration:none}
+header{background:#fff;box-shadow:0 2px 12px #0001}
+.header-inner{max-width:1200px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo img{width:180px;height:auto;display:block}
+nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+nav a{font-weight:bold;color:#142e4f}
+nav a:hover{color:#1e5a99}
+.whatsapp{background:#08aa58;color:white;padding:12px 18px;border-radius:8px}
+.hero{background:linear-gradient(115deg,#112f54,#20528d);color:white}
+.hero-inner{max-width:1120px;margin:auto;padding:60px 22px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+h1{font-size:clamp(36px,5vw,58px);line-height:1.1;margin:12px 0}
+.eyebrow{color:#ffc857;font-weight:bold;letter-spacing:1.5px}
+.hero p{font-size:17px}
+.card{background:#fff;color:#142e4f;padding:25px;border-radius:16px}
+.button{display:inline-block;padding:12px 18px;border-radius:8px;font-weight:bold;margin:8px 8px 0 0}
+.green{background:#08aa58;color:#fff}
+.gold{background:#ffc857;color:#142e4f}
+section{scroll-margin-top:20px}
+.container{max-width:1120px;margin:auto;padding:55px 22px}
+.heading{text-align:center;margin-bottom:30px}
+.heading h2{font-size:32px;margin:0 0 8px;color:#12345b}
+.heading p,.muted{color:#607188}
+.services{background:#f3f6fa}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.service{background:white;padding:22px;border:1px solid #dce5ef;border-radius:12px}
+.service h3{margin-bottom:8px}
+.about-grid,.form-grid,.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.panel{background:#f3f6fa;padding:25px;border-radius:12px}
+.form-card,.contact-card{background:white;padding:25px;border:1px solid #dce5ef;border-radius:14px}
+.form-card h3{margin-top:0}
+form{display:flex;flex-direction:column;gap:10px;width:100%}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd7e4;border-radius:7px;font:inherit}
+textarea{min-height:90px}
+button{border:0;cursor:pointer;font:inherit}
+.submit{background:#1f4f8b;color:white;padding:13px;border-radius:8px;font-weight:bold}
+footer{text-align:center;background:#102a49;color:white;padding:22px}
+@media(max-width:850px){
+.header-inner{flex-wrap:wrap}
+nav{gap:12px}
+.hero-inner{grid-template-columns:1fr}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-header img,
-header .logo img {
-  width: 180px;
-  height: 70px;
-  object-fit: contain;
-}
-
-/* NAVIGATION */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* ENQUIRY FORMS */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 420px;
-}
-
-form input,
-form select,
-form button {
-  width: 100%;
-  min-height: 42px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-/* PAGE SECTIONS */
-section {
-  scroll-margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-  }
-
-  nav {
-    gap: 12px;
-  }
+@media(max-width:600px){
+.header-inner{justify-content:center}
+.logo img{width:160px}
+nav{justify-content:center}
+nav a{font-size:14px}
+.grid,.about-grid,.form-grid,.contact-grid{grid-template-columns:1fr}
+.container{padding:38px 18px}
 }
 </style>
 </head>
 <body>
-<header><header class="top-header">
-  <a class="brand" href="#home">
-   <a class="brand" href="#home">
-  <img src="squic-logo.png"
-       alt="SQUIC LOANS Logo"
-       style="width:300px; height:auto;">
+
+<header>
+<div class="header-inner">
+<a class="logo" href="#home">
+<img src="squic-logo.png" alt="SQUIC LOANS Logo">
 </a>
-  </a>
-
-  <button class="menu-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('show')">
-    ☰
-  </button>
-
- 
-
- 
-
-  <nav class="nav-menu">
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-
-    <div class="loan-dropdown">
-      <a href="#services">Loan Products ▾</a>
-      <div class="loan-dropdown-list">
-        <a href="#personal-loan">Personal Loan</a>
-        <a href="#business-loan">Business Loan</a>
-        <a href="#home-loan">Home Loan</a>
-        <a href="#lap-loan">Loan Against Property</a>
-      </div>
-    </div>
-
-    <a href="#contact">Apply Now</a>
-    <a href="#dsa">DSA / Partners</a>
-    <a href="#contact">Contact Us</a>
-    <a class="whatsapp-btn"
-       href="https://wa.me/919092105199"
-       target="_blank" rel="noopener">
-       WhatsApp
-    </a>
-  </nav>
+<nav aria-label="Main navigation">
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#loan-products">Loan Products</a>
+<a href="#apply-now">Apply Now</a>
+<a href="#dsa-partners">DSA / Partners</a>
+<a href="#contact">Contact Us</a>
+<a class="whatsapp" href="https://wa.me/919092105199" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+</div>
 </header>
 
-<style>
-.top-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 18px 3%;
-  background: white;
-  box-shadow: 0 2px 10px #00000012;
-  font-family: Arial, sans-serif;
-}
-.brand {
-  text-decoration: none;
-  color: #0751a4;
-  font-size: 25px;
-  font-weight: 800;
-  white-space: nowrap;
-}
-.brand b { color: #e52332; }
-.brand small {
-  display: block;
-  font-size: 12px;
-  text-align: center;
-}
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.nav-menu a {
-  text-decoration: none;
-  color: #10264b;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.whatsapp-btn {
-  background: #08ad5a;
-  color: white !important;
-  padding: 13px 17px;
-  border-radius: 8px;
-}
-.menu-toggle { display: none; }
-.loan-dropdown { position: relative; }
-.loan-dropdown-list {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 190px;
-  background: white;
-  box-shadow: 0 5px 15px #0002;
-  padding: 10px;
-  z-index: 10;
-}
-.loan-dropdown:hover .loan-dropdown-list {
-  display: grid;
-  gap: 14px;
-}
-@media (max-width: 900px) {
-  .top-header { flex-wrap: wrap; }
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-    padding: 8px 12px;
-    font-size: 22px;
-  }
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 18px;
-  }
-  .nav-menu.show { display: flex; }
-  .loan-dropdown-list {
-    position: static;
-    box-shadow: none;
-  }
-  .loan-dropdown:focus-within .loan-dropdown-list {
-    display: grid;
-  }
-}
-</style></header>
-
-<style>
-.top-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 18px 3%;
-  background: white;
-  box-shadow: 0 2px 10px #00000012;
-  font-family: Arial, sans-serif;
-}
-.brand {
-  text-decoration: none;
-  color: #0751a4;
-  font-size: 25px;
-  font-weight: 800;
-  white-space: nowrap;
-}
-.brand b { color: #e52332; }
-.brand small {
-  display: block;
-  font-size: 12px;
-  text-align: center;
-}
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.nav-menu a {
-  text-decoration: none;
-  color: #10264b;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.whatsapp-btn {
-  background: #08ad5a;
-  color: white !important;
-  padding: 13px 17px;
-  border-radius: 8px;
-}
-.menu-toggle { display: none; }
-.loan-dropdown { position: relative; }
-.loan-dropdown-list {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 190px;
-  background: white;
-  box-shadow: 0 5px 15px #0002;
-  padding: 10px;
-  z-index: 10;
-}
-.loan-dropdown:hover .loan-dropdown-list {
-  display: grid;
-  gap: 14px;
-}
-@media (max-width: 900px) {
-  .top-header { flex-wrap: wrap; }
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-    padding: 8px 12px;
-    font-size: 22px;
-  }
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 18px;
-  }
-  .nav-menu.show { display: flex; }
-  .loan-dropdown-list {
-    position: static;
-    box-shadow: none;
-  }
-  .loan-dropdown:focus-within .loan-dropdown-list {
-    display: grid;
-  }
-}
-</style></header>
 <main>
-<section class="hero"><div class="wrap hero-grid">
-<div><div class="eyebrow">Loan assistance made simple</div><h1>Looking for a loan?</h1><p>Tell us what you need. Our team can help you explore loan options based on your requirements and lender eligibility.</p>
-<div class="actions"><a class="btn btn-wa" href="https://wa.me/919092105199?text=Hello%20SQUIC%20LOANS%2C%20I%20want%20to%20enquire%20about%20a%20loan." target="_blank" rel="noopener">WhatsApp Enquiry ↗</a><a class="btn btn-main" href="#enquiry">Submit Enquiry Form ↓</a></div></div>
-<div class="hero-card"><h3>One place for your loan enquiry</h3><p>Personal, business, home and property-backed loan options. Submit an enquiry and we’ll help you understand possible next steps.</p><hr style="border:0;border-top:1px solid #e3eaf3;margin:18px 0"><p><strong>Contact:</strong> 90921 05199<br><strong>Service location:</strong> Pondicherry</p></div>
-</div></section>
-<section><div class="wrap"><div class="section-title"><h2>Our Loan Services</h2><p>Choose the type of loan you want to enquire about.</p></div>
-<div class="services">
-<div class="service"><div class="ico">👤</div><h3>Personal Loan</h3><p>Explore options for eligible personal needs.</p></div>
-<div class="service"><div class="ico">💼</div><h3>Business Loan</h3><p>Finance options for eligible business needs.</p></div>
-<div class="service"><div class="ico">🏠</div><h3>Home Loan</h3><p>Explore home purchase or financing options.</p></div>
-<div class="service"><div class="ico">🏢</div><h3>Loan Against Property</h3><p>Ask about property-backed loan options.</p></div>
-</div></div></section>
-<section><div class="wrap"><div class="section-title"><h2>How It Works</h2><p>A simple way to start your enquiry.</p></div><div class="steps">
-<div class="step"><b>01 — Share your need</b><p>Fill in the enquiry form or message us on WhatsApp.</p></div>
-<div class="step"><b>02 — Discuss your options</b><p>Our team can contact you to understand your requirement.</p></div>
-<div class="step"><b>03 — Check eligibility</b><p>Final approval, rates and terms are decided by the lender.</p></div>
-</div></div></section>
-<section class="form-section" id="enquiry"><div class="wrap"><div class="section-title"><h2>Customer Enquiry Form</h2><p>Fill in the details below. Tapping submit will open WhatsApp with your enquiry message.</p></div>
-<div class="form-box"><form id="loanForm"><div class="form-grid">
-<div class="field"><label for="name">Full name *</label><input id="name" name="name" required autocomplete="name" placeholder="Enter your name"></div>
-<div class="field"><label for="phone">Mobile number *</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ ()-]{8,18}" placeholder="Enter your mobile number"></div>
-<div class="field"><label for="loan">Loan type *</label><select id="loan" name="loan" required><option value="">Choose loan type</option><option>Personal Loan</option><option>Business Loan</option><option>Home Loan</option><option>Loan Against Property (LAP)</option></select></div>
-<div class="field"><label for="amount">Required amount (₹)</label><input id="amount" name="amount" placeholder="e.g. 500000" inputmode="numeric"></div>
-<div class="field full"><label for="employment">Employment type</label><select id="employment" name="employment"><option value="Not specified">Choose employment type</option><option>Salaried</option><option>Self-employed / Business</option></select></div>
+<section class="hero" id="home">
+<div class="hero-inner">
+<div>
+<div class="eyebrow">LOAN ASSISTANCE MADE SIMPLE</div>
+<h1>Looking for a loan?</h1>
+<p>Tell us what you need. Our team can help you explore loan options based on your requirements and lender eligibility.</p>
+<a class="button green" href="https://wa.me/919092105199?text=Hi%2C%20I%20need%20loan%20assistance" target="_blank" rel="noopener">WhatsApp Enquiry ↗</a>
+<a class="button gold" href="#apply-now">Submit Enquiry Form ↓</a>
 </div>
-<label class="consent"><input type="checkbox" id="consent" required><span>I agree to be contacted about this enquiry. I understand loan approval and terms depend on the lender’s eligibility criteria.</span></label>
-<button class="btn btn-wa" type="submit" style="width:100%">Send Enquiry on WhatsApp</button>
-<p class="form-note">Please do not submit passwords, OTPs, bank login details or sensitive documents through this form.</p>
-</form></div></div></section> <!-- SQUIC LOANS HOME LOAN IMAGE SLIDER -->
-<section class="home-gallery">
-  <h2>🏠 SQUIC LOANS Home Loan</h2>
-  <p>Make Your Dream Home Possible</p>
-
-  <div class="home-slider">
-    <img
-      id="homeSlide"
-      src="home1.jpg"
-      alt="SQUIC LOANS Home Loan"
-    >
-
-    <button type="button" class="slide-prev"
-      onclick="changeHomeSlide(-1)">❮</button>
-
-    <button type="button" class="slide-next"
-      onclick="changeHomeSlide(1)">❯</button>
-  </div>
-
-  <p id="homeSlideCount">1 / 4</p>
-
-  <a class="home-whatsapp"
-     href="https://wa.me/919092105199?text=Hello%20SQUIC%20LOANS%2C%20I%20need%20a%20home%20loan"
-     target="_blank" rel="noopener">
-    WhatsApp Enquiry
-  </a>
+<div class="card">
+<h2>One place for your loan enquiry</h2>
+<p>Personal, business, home and property-backed loan options. Submit an enquiry and we’ll help you understand possible next steps.</p>
+<hr>
+<p><strong>Contact:</strong> 90921 05199</p>
+<p><strong>Service location:</strong> Pondicherry</p>
+</div>
+</div>
 </section>
 
-<style>
-.home-gallery {
-  max-width: 850px;
-  margin: 30px auto;
-  padding: 20px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
+<section class="services" id="loan-products">
+<div class="container">
+<div class="heading">
+<h2>Our Loan Services</h2>
+<p>Choose the type of loan you want to enquire about.</p>
+</div>
+<div class="grid">
+<div class="service"><h3>👤 Personal Loan</h3><p>Explore options for eligible personal needs.</p><a href="#apply-now" onclick="document.getElementById('loan-type').value='Personal Loan'">Enquire Now →</a></div>
+<div class="service"><h3>💼 Business Loan</h3><p>Enquire about funding for business requirements.</p><a href="#apply-now" onclick="document.getElementById('loan-type').value='Business Loan'">Enquire Now →</a></div>
+<div class="service"><h3>🏠 Home Loan</h3><p>Discuss home purchase financing options.</p><a href="#apply-now" onclick="document.getElementById('loan-type').value='Home Loan'">Enquire Now →</a></div>
+<div class="service"><h3>🏢 Loan Against Property</h3><p>Explore property-backed funding options.</p><a href="#apply-now" onclick="document.getElementById('loan-type').value='Loan Against Property (LAP)'">Enquire Now →</a></div>
+</div>
+</div>
+</section>
 
-.home-slider {
-  position: relative;
-  background: #f4f7fb;
-  border-radius: 14px;
-  overflow: hidden;
-}
+<section id="about">
+<div class="container about-grid">
+<div>
+<h2>About SQUIC LOANS</h2>
+<p>We help customers explore loan products and understand the enquiry process. Loan approval and terms are decided by the relevant lender.</p>
+</div>
+<div class="panel">
+<h3>How we help</h3>
+<ul>
+<li>Understand your loan requirements</li>
+<li>Guide you through the enquiry process</li>
+<li>Explain documents a lender may request</li>
+<li>Connect interested people with our partner network</li>
+</ul>
+</div>
+</div>
+</section>
 
-.home-slider img {
-  display: block;
-  width: 100%;
-  height: 420px;
-  object-fit: contain;
-}
+<section class="services" id="apply-now">
+<div class="container">
+<div class="heading">
+<h2>Apply Now</h2>
+<p>Share your basic details to start an enquiry.</p>
+</div>
+<div class="form-grid">
+<div class="form-card">
+<h3>Customer Loan Enquiry</h3>
+<form action="https://formsubmit.co/sakthivel.vijayakumar@ruloans.com" method="POST">
+<input type="hidden" name="_subject" value="SQUIC LOANS Customer Enquiry">
+<input type="hidden" name="_template" value="table">
+<label for="customer-name">Full Name</label>
+<input id="customer-name" name="Customer Name" placeholder="Your full name" required>
+<label for="customer-phone">Mobile Number</label>
+<input id="customer-phone" name="Mobile Number" type="tel" inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
+<label for="customer-location">Location</label>
+<input id="customer-location" name="Location" placeholder="City / Location" required>
+<label for="loan-type">Loan Type</label>
+<select id="loan-type" name="Loan Type" required>
+<option value="">Select loan type</option>
+<option>Personal Loan</option>
+<option>Business Loan</option>
+<option>Home Loan</option>
+<option>Loan Against Property (LAP)</option>
+</select>
+<label for="customer-message">Requirement (optional)</label>
+<textarea id="customer-message" name="Requirement" placeholder="Describe your requirement"></textarea>
+<button class="submit" type="submit">Submit Loan Enquiry</button>
+</form>
+</div>
 
-.home-slider button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #064a9b;
-  color: white;
-  border: 0;
-  border-radius: 50%;
-  padding: 12px 15px;
-  cursor: pointer;
-}
+<div class="form-card" id="dsa-partners">
+<h3>DSA / Partner Registration</h3>
+<p class="muted">Join our partner network. Share your details to register your interest.</p>
+<form action="https://formsubmit.co/sakthivel.vijayakumar@ruloans.com" method="POST">
+<input type="hidden" name="_subject" value="SQUIC LOANS Partner Registration">
+<input type="hidden" name="_template" value="table">
+<label for="partner-name">Full Name</label>
+<input id="partner-name" name="Partner Name" placeholder="Your full name" required>
+<label for="partner-phone">Phone Number</label>
+<input id="partner-phone" name="Phone Number" type="tel" inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
+<label for="partner-location">Location</label>
+<input id="partner-location" name="Location" placeholder="City / Location" required>
+<label for="partner-email">Gmail ID / Email</label>
+<input id="partner-email" name="Email" type="email" placeholder="Your email address" required>
+<button class="submit" type="submit">Register as Partner</button>
+</form>
+</div>
+</div>
+<p class="muted">Form submissions use FormSubmit. The first submission may require email activation. Test before publishing for customer use.</p>
+</div>
+</section>
 
-.slide-prev { left: 12px; }
-.slide-next { right: 12px; }
-
-.home-whatsapp {
-  display: inline-block;
-  background: #128c7e;
-  color: white;
-  padding: 13px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-@media (max-width: 600px) {
-  .home-slider img { height: 260px; }
-}
-</style>
-
-<script>
-const homeSlides = [
-  "home1.jpg",
-  "home2.png",
-  "home3.png",
-  "home4.png"
-];
-
-let homeSlideIndex = 0;
-
-function changeHomeSlide(direction) {
-  homeSlideIndex =
-    (homeSlideIndex + direction + homeSlides.length)
-    % homeSlides.length;
-
-  document.getElementById("homeSlide").src =
-    homeSlides[homeSlideIndex];
-
-  document.getElementById("homeSlideCount").textContent =
-    (homeSlideIndex + 1) + " / " + homeSlides.length;
-}
-</script>
-<section class="contact"><div class="wrap"><h2>Have a question?</h2><p>Contact SQUIC LOANS on WhatsApp to start your enquiry.</p><a class="btn btn-wa" href="https://wa.me/919092105199?text=Hello%20SQUIC%20LOANS%2C%20I%20have%20a%20loan%20enquiry." target="_blank" rel="noopener">WhatsApp: 90921 05199</a></div></section>
+<section id="contact">
+<div class="container">
+<div class="heading">
+<h2>Contact Us</h2>
+<p>Contact us for loan assistance or partner enquiries.</p>
+</div>
+<div class="contact-grid">
+<div class="contact-card">
+<h3>SQUIC LOANS</h3>
+<p><strong>Service Location:</strong> Pondicherry</p>
+<p><strong>Phone:</strong> <a href="tel:+919092105199">90921 05199</a></p>
+<p><strong>Email:</strong> <a href="mailto:sakthivel.vijayakumar@ruloans.com">sakthivel.vijayakumar@ruloans.com</a></p>
+<a class="button green" href="https://wa.me/919092105199" target="_blank" rel="noopener">Chat on WhatsApp</a>
+</div>
+<div class="contact-card">
+<h3>Important Information</h3>
+<p>Loan eligibility, approval, interest rates, fees and disbursement are decided by the lender. Submitting an enquiry does not guarantee approval.</p>
+<p>Please never submit passwords, OTPs, bank PINs or other sensitive credentials through this website.</p>
+</div>
+</div>
+</div>
+</section>
 </main>
-<footer><div class="wrap"><p><strong>SQUIC LOANS</strong> · Pondicherry</p><p>Loan assistance only. This website does not guarantee approval, interest rates or disbursal. Final eligibility, pricing and approval are subject to the lender’s policies and assessment.</p><p>© <span id="year"></span> SQUIC LOANS</p></div></footer>
-<div class="sticky"><a href="https://wa.me/919092105199?text=Hello%20SQUIC%20LOANS%2C%20I%20want%20to%20enquire%20about%20a%20loan." target="_blank" rel="noopener">WhatsApp Enquiry · 90921 05199</a></div>
+
+<footer>
+<p><strong>SQUIC LOANS</strong> — Loan assistance made simple.</p>
+<p>© <span id="year"></span> SQUIC LOANS. All rights reserved.</p>
+</footer>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('loanForm').addEventListener('submit', function(e){
- e.preventDefault();
- const name=document.getElementById('name').value.trim();
- const phone=document.getElementById('phone').value.trim();
- const loan=document.getElementById('loan').value;
- const amount=document.getElementById('amount').value.trim() || 'Not specified';
- const employment=document.getElementById('employment').value;
- const consent=document.getElementById('consent').checked;
- if(!name||!phone||!loan||!consent){alert('Please complete the required fields and consent.');return;}
- const msg=`Hello SQUIC LOANS, I would like to enquire about a loan.%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(phone)}%0ALoan type: ${encodeURIComponent(loan)}%0ARequired amount: ${encodeURIComponent(amount)}%0AEmployment: ${encodeURIComponent(employment)}`;
- window.open('https://wa.me/919092105199?text='+msg,'_blank','noopener');
-});
 </script>
-</body></html>
+</body>
+</html>
