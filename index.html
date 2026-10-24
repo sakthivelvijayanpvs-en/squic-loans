@@ -37,108 +37,33 @@ section{padding:55px 0}.section-title{text-align:center;margin:0 auto 28px;max-w
 
   <nav class="nav-menu">
    
-<!-- HOME -->
-<section id="home">
-  <h1>Welcome to SQUIC LOANS</h1>
-  <p>Your Loan Journey Starts Here!</p>
-  <p>Explore loan options for your personal and business needs.</p>
-  <a href="#loan-products">Explore Loan Products</a>
-  <a href="#apply-now">Apply Now</a>
-</section>
-
-<!-- ABOUT US -->
-<section id="about">
-  <h2>About Us</h2>
-  <p>
-    SQUIC LOANS helps customers explore loan options
-    through our loan assistance and partner network.
-  </p>
-</section>
-
-<!-- LOAN PRODUCTS -->
-<section id="loan-products">
-  <h2>Our Loan Products</h2>
-  <ul>
-    <li>Personal Loan</li>
-    <li>Business Loan</li>
-    <li>Home Loan</li>
-    <li>Loan Against Property (LAP)</li>
-  </ul>
-  <a href="#apply-now">Enquire Now</a>
-</section>
-
-<!-- APPLY NOW -->
-<section id="apply-now">
-  <h2>Apply for a Loan</h2>
-  <p>Submit your enquiry to discuss your loan requirements.</p>
-
-  <form action="https://formsubmit.co/sakthivel.vijayakumar@ruloans.com"
-        method="POST">
-    <input type="hidden" name="_subject"
-           value="SQUIC LOANS - Customer Loan Enquiry">
-
-    <input type="text" name="Name"
-           placeholder="Customer Name" required>
-
-    <input type="tel" name="Phone"
-           placeholder="Mobile Number"
-           pattern="[0-9]{10}" required>
-
-    <input type="text" name="Location"
-           placeholder="Your Location" required>
-
-    <select name="Loan Type" required>
-      <option value="">Select Loan Type</option>
-      <option>Personal Loan</option>
-      <option>Business Loan</option>
-      <option>Home Loan</option>
-      <option>Loan Against Property</option>
-    </select>
-
-    <button type="submit">Submit Enquiry</button>
-  </form>
-</section>
-
-<!-- DSA / PARTNER REGISTRATION -->
-<section id="dsa-partners">
-  <h2>Become a SQUIC LOANS Partner</h2>
-  <p>Join our partner network and earn by referring eligible loan customers.</p>
-
-  <form action="https://formsubmit.co/sakthivel.vijayakumar@ruloans.com"
-        method="POST">
-    <input type="hidden" name="_subject"
-           value="SQUIC LOANS - Partner Registration">
-
-    <input type="text" name="Partner Name"
-           placeholder="Full Name" required>
-
-    <input type="tel" name="Phone"
-           placeholder="Phone Number"
-           pattern="[0-9]{10}" required>
-
-    <input type="text" name="Location"
-           placeholder="City / Location" required>
-
-    <input type="email" name="Email"
-           placeholder="Gmail ID" required>
-
-    <button type="submit">Register as Partner</button>
-  </form>
-</section>
-
-<!-- CONTACT US -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p><strong>SQUIC LOANS</strong></p>
-  <p>Phone: 9092105199</p>
-  <p>Email: sakthivel.vijayakumar@ruloans.com</p>
-
-  <a href="https://wa.me/919092105199"
-     target="_blank" rel="noopener">
-    Chat with Us on WhatsApp
+<header class="top-header">
+  <a class="brand" href="#home">
+    <span class="brand-name">SQUIC <b>LOANS</b></span>
+    <small>All Type of Loans</small>
   </a>
-</section>
 
+  <button class="menu-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('show')">
+    ☰
+  </button>
+
+  <nav class="nav-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+
+    <div class="loan-dropdown">
+      <a href="#services">Loan Products ▾</a>
+      <div class="loan-dropdown-list">
+        <a href="#personal-loan">Personal Loan</a>
+        <a href="#business-loan">Business Loan</a>
+        <a href="#home-loan">Home Loan</a>
+        <a href="#lap-loan">Loan Against Property</a>
+      </div>
+    </div>
+
+    <a href="#contact">Apply Now</a>
+    <a href="#dsa">DSA / Partners</a>
+    <a href="#contact">Contact Us</a>
     <a class="whatsapp-btn"
        href="https://wa.me/919092105199"
        target="_blank" rel="noopener">
@@ -146,6 +71,90 @@ section{padding:55px 0}.section-title{text-align:center;margin:0 auto 28px;max-w
     </a>
   </nav>
 </header>
+
+<style>
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 3%;
+  background: white;
+  box-shadow: 0 2px 10px #00000012;
+  font-family: Arial, sans-serif;
+}
+.brand {
+  text-decoration: none;
+  color: #0751a4;
+  font-size: 25px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.brand b { color: #e52332; }
+.brand small {
+  display: block;
+  font-size: 12px;
+  text-align: center;
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: #10264b;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.whatsapp-btn {
+  background: #08ad5a;
+  color: white !important;
+  padding: 13px 17px;
+  border-radius: 8px;
+}
+.menu-toggle { display: none; }
+.loan-dropdown { position: relative; }
+.loan-dropdown-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 190px;
+  background: white;
+  box-shadow: 0 5px 15px #0002;
+  padding: 10px;
+  z-index: 10;
+}
+.loan-dropdown:hover .loan-dropdown-list {
+  display: grid;
+  gap: 14px;
+}
+@media (max-width: 900px) {
+  .top-header { flex-wrap: wrap; }
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    padding: 8px 12px;
+    font-size: 22px;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 18px;
+  }
+  .nav-menu.show { display: flex; }
+  .loan-dropdown-list {
+    position: static;
+    box-shadow: none;
+  }
+  .loan-dropdown:focus-within .loan-dropdown-list {
+    display: grid;
+  }
+}
+</style></header>
 
 <style>
 .top-header {
