@@ -266,5 +266,68 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const SUPABASE_URL = "https://ceblgmggzhndwnenzvcd.supabase.co";
 const SUPABASE_KEY = "sb_publishable_oxy3vbqzwte6U3a2WumvNA_kySOBPr6";
 </script>
+ 
+<!-- SQUIC LOANS CRM Login -->
+<section id="crm-login" style="max-width:420px;margin:40px auto;padding:24px;border:1px solid #ddd;border-radius:12px;font-family:Arial,sans-serif;">
+  <h2 style="color:#d71920;text-align:center;">SQUIC LOANS CRM</h2>
+  <h3>Staff Login</h3>
+
+  <form id="login-form">
+    <label>Email address</label>
+    <input id="login-email" type="email" required
+      style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+    <label>Password</label>
+    <input id="login-password" type="password" required
+      style="width:100%;padding:12px;margin:8px 0 16px;box-sizing:border-box;">
+
+    <button type="submit"
+      style="width:100%;padding:12px;background:#d71920;color:white;border:0;border-radius:6px;">
+      Login
+    </button>
+    <p id="login-message" role="status"></p>
+  </form>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const crmClient = window.supabase.createClient(
+  "https://ceblgmggzhndwnenzvcd.supabase.co",
+  "PASTE_YOUR_REAL_SB_PUBLISHABLE_KEY"
+);
+
+document.getElementById("login-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const message = document.getElementById("login-message");
+  message.textContent = "Checking login...";
+
+  const { data, error } = await crmClient.auth.signInWithPassword({
+    email: document.getElementById("login-email").value.trim(),
+    password: document.getElementById("login-password").value
+  });
+
+  if (error) {
+    message.textContent = "Login failed. Check your email and password.";
+    return;
+  }
+
+  const { data: profile, error: profileError } = await crmClient
+    .from("profiles")
+    .select("full_name, role")
+    .eq("id", data.user.id)
+    .single();
+
+  if (profileError || !profile) {
+    await crmClient.auth.signOut();
+    message.textContent = "Staff profile not found. Contact admin.";
+    return;
+  }
+
+  message.textContent = "Login successful: " + profile.full_name +
+    " (" + profile.role + "). Dashboard setup is the next step.";
+});
+</script>
+
 </body>
 </html>
