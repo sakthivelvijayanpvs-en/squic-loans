@@ -325,8 +325,8 @@ document.getElementById("login-form").addEventListener("submit", async function(
     return;
   }
 
-  message.textContent = "Login successful: " + profile.full_name +
-  " (" + profile.role + "). Dashboard setup is the next step.";
+  message.textContent = "Login successful! Opening CRM...";
+window.location.href = "home.html";
 });
 </script>
 
