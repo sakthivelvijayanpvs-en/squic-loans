@@ -1,1 +1,110 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQUIC LOANS CRM Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f3f5f9;color:#142e4f}
+header{background:#142e4f;color:white;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header h2{margin:0}
+button{border:0;border-radius:6px;padding:11px 16px;cursor:pointer}
+.logout{background:#df1725;color:white}
+main{max-width:1100px;margin:25px auto;padding:0 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.card{background:white;padding:22px;border-radius:10px;box-shadow:0 2px 10px #0001}
+.card h3{margin:0 0 12px;font-size:16px}
+.value{font-size:28px;font-weight:bold;color:#df1725}
+.panel{background:white;margin-top:22px;padding:22px;border-radius:10px}
+a{color:#df1725}
+</style>
+</head>
+<body>
+<header>
+  <h2>SQUIC LOANS CRM</h2>
+  <div>
+    <span id="staff-name">Staff</span>
+    <button class="logout" id="logout">Logout</button>
+  </div>
+</header>
+
+<main>
+  <h2>CRM Dashboard</h2>
+  <p>Welcome to your loan business dashboard.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total Leads</h3>
+      <div class="value" id="lead-count">—</div>
+    </div>
+    <div class="card">
+      <h3>My Follow-ups</h3>
+      <div class="value">—</div>
+    </div>
+    <div class="card">
+      <h3>Pending Cases</h3>
+      <div class="value">—</div>
+    </div>
+    <div class="card">
+      <h3>Disbursed Cases</h3>
+      <div class="value">—</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Lead Management</h3>
+    <p>Lead details will appear here after the database connection is configured.</p>
+    <a href="index.html">Back to Website</a>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://ceblgmggzhndwnenzvcd.supabase.co";
+const SUPABASE_KEY = "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY";
+
+const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function initDashboard() {
+  const { data: { session }, error } =
+    await client.auth.getSession();
+
+  if (error || !session) {
+    window.location.replace("index.html");
+    return;
+  }
+
+  const { data: profile } = await client
+    .from("profiles")
+    .select("full_name, role")
+    .eq("id", session.user.id)
+    .single();
+
+  if (!profile) {
+    document.getElementById("staff-name").textContent =
+      session.user.email;
+  } else {
+    document.getElementById("staff-name").textContent =
+      profile.full_name + " (" + profile.role + ")";
+  }
+
+  const { count } = await client
+    .from("leads")
+    .select("*", { count: "exact", head: true });
+
+  document.getElementById("lead-count").textContent =
+    count ?? 0;
+}
+
+document.getElementById("logout").addEventListener("click", async () => {
+  await client.auth.signOut();
+  window.location.replace("index.html");
+});
+
+initDashboard();
+</script>
+</body>
+</html>
+
